@@ -17,16 +17,16 @@ Console.WriteLine(Smaller(59884848483559L));
 static long Smaller(long n)
 {
     var ListNumber = new List<int>(n.ToString().Select(x => int.Parse(x.ToString())));
-    for(int i = 0; i < ListNumber.Count; i++)
+    for (int i = 0; i < ListNumber.Count; i++)
     {
-        for(int j = i; j < ListNumber.Count; j++)
+        for (int j = i; j < ListNumber.Count; j++)
         {
             if (ListNumber[i] > ListNumber[j])
             {
                 if (ListNumber[j] == 0 && i == 0)
                     continue;
                 var temp = ListNumber[i];
-                ListNumber[i] = ListNumber[j]; 
+                ListNumber[i] = ListNumber[j];
                 ListNumber[j] = temp;
             }
         }
@@ -37,7 +37,7 @@ static long Smaller(long n)
         listNumberStr += ListNumber[i].ToString();
     }
     var resTry = long.TryParse(listNumberStr, out var result);
-    if(resTry && n != result)
+    if (resTry && n != result)
     {
         return result;
     }
